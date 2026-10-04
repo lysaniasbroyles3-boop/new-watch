@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>BOBOS Watch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="app">
+
+    <header class="topbar">
+      <button class="logo-button" onclick="showPage('home')">
+        BOBOS
+      </button>
+
+      <div class="online">
+        <span></span> ONLINE
+      </div>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <div id="clock">12:00</div>
+        <div id="date">Loading...</div>
+      </div>
+
+      <div class="grid">
+
+        <button class="card" onclick="showPage('projects')">
+          <div class="emoji">📁</div>
+          <strong>Projects</strong>
+          <small>BOBOS projects</small>
+        </button>
+
+        <button class="card" onclick="showPage('games')">
+          <div class="emoji">🎮</div>
+          <strong>Games</strong>
+          <small>Play & explore</small>
+        </button>
+
+        <button class="card trading-card" onclick="showPage('trading')">
+          <div class="emoji">📈</div>
+          <strong>BOB Trading</strong>
+          <small>Virtual trading</small>
+        </button>
+
+        <button class="card" onclick="showPage('control')">
+          <div class="emoji">⚙️</div>
+          <strong>Control</strong>
+          <small>BOBOS controls</small>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="page">
+      <h1>📁 Projects</h1>
+
+      <div class="list-card">
+        <strong>BOBOS Dashboard</strong>
+        <span>ONLINE</span>
+      </div>
+
+      <div class="list-card">
+        <strong>BOB Trading</strong>
+        <span>ACTIVE</span>
+      </div>
+
+      <div class="list-card">
+        <strong>Egg Boss Game</strong>
+        <span>READY</span>
+      </div>
+
+      <button class="big-button" onclick="showPage('home')">
+        ← Back
+      </button>
+    </section>
+
+    <!-- GAMES -->
+    <section id="games" class="page">
+      <h1>🎮 Games</h1>
+
+      <button class="game-button" onclick="notify('Egg Boss selected!')">
+        🥚 Egg Boss
+      </button>
+
+      <button class="game-button" onclick="notify('Game launcher opened!')">
+        🚀 Game Launcher
+      </button>
+
+      <button class="big-button" onclick="showPage('home')">
+        ← Back
+      </button>
+    </section>
+
+    <!-- TRADING -->
+    <section id="trading" class="page">
+      <h1>📈 BOB Trading</h1>
+
+      <div class="trading-price">
+        <small>BOB PRICE</small>
+        <div id="stockPrice">$100.00</div>
+        <span id="priceChange">+0.00%</span>
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <small>VIRTUAL CASH</small>
+          <strong id="cash">$10,000.00</strong>
+        </div>
+
+        <div class="stat">
+          <small>SHARES</small>
+          <strong id="shares">0</strong>
+        </div>
+
+        <div class="stat">
+          <small>PORTFOLIO</small>
+          <strong id="portfolio">$0.00</strong>
+        </div>
+
+        <div class="stat">
+          <small>PROFIT / LOSS</small>
+          <strong id="profit">$0.00</strong>
+        </div>
+
+      </div>
+
+      <div class="quantity">
+        <button onclick="changeQuantity(-1)">−</button>
+        <strong id="quantity">1</strong>
+        <button onclick="changeQuantity(1)">+</button>
+      </div>
+
+      <div class="trade-buttons">
+        <button class="buy" onclick="buyStock()">BUY</button>
+        <button class="sell" onclick="sellStock()">SELL</button>
+      </div>
+
+      <button class="big-button" onclick="resetTrading()">
+        🔄 Reset Trading
+      </button>
+
+      <button class="big-button" onclick="showPage('home')">
+        ← Dashboard
+      </button>
+
+      <p class="demo">
+        SIMULATION ONLY — NO REAL MONEY
+      </p>
+    </section>
+
+    <!-- CONTROL -->
+    <section id="control" class="page">
+      <h1>⚙️ Control</h1>
+
+      <button class="control-button" onclick="refreshDashboard()">
+        🔄 Refresh
+      </button>
+
+      <button class="control-button" onclick="showPage('trading')">
+        📈 Open Trading
+      </button>
+
+      <button class="control-button" onclick="showPage('projects')">
+        📁 Open Projects
+      </button>
+
+      <button class="control-button" onclick="showPage('games')">
+        🎮 Open Games
+      </button>
+
+      <button class="big-button" onclick="showPage('home')">
+        ← Dashboard
+      </button>
+    </section>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+      <button onclick="showPage('home')">⌂<span>Home</span></button>
+      <button onclick="showPage('projects')">📁<span>Projects</span></button>
+      <button onclick="showPage('trading')">📈<span>Trading</span></button>
+      <button onclick="showPage('control')">⚙️<span>Control</span></button>
+    </nav>
+
+    <div id="toast"></div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
